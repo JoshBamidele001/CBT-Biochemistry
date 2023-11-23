@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../../../LEVEL 1/HTML/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<style>
+    #quesDisplay{
+        width: 900px;
+        height: 500px;
+        margin: 100px auto;
+        color: white;
+    }
+    button{
+       padding: 10px 40px;
+    }
+
+    #wrap{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+<body>
+
+    <div id="wrap">
+        <div>
+            <div id="container">
+                <div id= "quesDisplay" class="p-5 bg-success">
+           
+                </div>
+            </div>
+            <div>
+                <button  onclick="Previous()" class="btn btn-warning">Previous</button>
+                <button onclick="Next()" class="btn btn-warning">Next</button>
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script>
+    let cbt = [
+        {
+            que: "1. Which of the following is an imino acid?",
+            opt: [ "Serine", "Alanine", "Glycine", "Proline"],
+            corrAns: 'Proline'
+        },
+
+        {
+            que: "2. Which of the following is an example of epimers?",
+            opt: [ " Mannose & Glucose", "Glucose & Ribose", "Galactose & Mannose", "Glucose & Galactose"],
+            corrAns: 'Glucose & Galactose'
+        },
+
+        {
+            que: "3. In which of the following, glucose residues are linked by β1 &arr; 4 glycosidic bonds?",
+            opt: [ "Starch", "Cellulose", " Glycogen", "Amylose"],
+            corrAns: 'Cellulose'
+        },
+        {
+            que: "4. Which of the following are important for white blood cell recognition?",
+            opt: [ "Glycoproteins", "Glycosaminoglycans", "Glycolipids", "Proteoglycans"],
+            corrAns: 'Glycoproteins'
+        },
+        {
+            que: "5. Arrangement of nucleotides in DNA can be seen using which of the following instruments?",
+            opt: [ "Electron microscope", "Light microscope", "X-Ray crystallography", "Ultracentrifuge"],
+            corrAns: 'X-Ray crystallography'
+        },
+        {
+            que: "6. Which of the following hormone is responsible for the activation of phospholipase C?",
+            opt: [ "Adrenaline", "Serotonin", "Cortisol", "Vasopressin"],
+            corrAns: 'Vasopressin' 
+        },
+
+        {
+            que: "7. Migration of cancerous cells from the site of origin to other part of the body forming secondary tumors is called ___________",
+            opt: [ "Proliferation", "Diapedesis", " Apoptosis", "Metastasis"],
+            corrAns: 'Metastasis'
+        },
+
+        {
+            que: "8.  Anabolism and catabolism are chemically linked in the form of __________",
+            opt: [ "ASP", "ADP", "ATP", "Phosphodiester linkage"],
+            corrAns: 'ATP'
+        },
+
+        {
+            que: "9. Which of the following enzyme is responsible for the conversion of glucose 1-phosphate to glucose 6-phosphate?",
+            opt: [ "Epimerase", "Phosphoglucomutase", "Glycogen phosphorylase", "Isomerase"],
+            corrAns: ' Phosphoglucomutase'
+        },
+        {
+            que: "10. Which one of the following is the source of electrons in photosynthesis?",
+            opt: [ "NADH", "Water", "Carbohydrates", " CO2"],
+            corrAns: 'Water'
+        }
+
+
+
+
+
+    ]
+
+    let net = 0
+
+    document.getElementById("quesDisplay").innerHTML = `<h1>BIOCHEMISTRY MSQ (100 marks)</h1> <br> <h2> ${cbt[0].que} </h2> <br> 
+        <p class = "p-3"><input type = "radio"> ${cbt[net].opt.join(' <br> <input type = "radio">')}</p>`
+
+    console.log(cbt)
+
+    function Next(){
+        if (net < cbt.length -1){
+        net ++;
+      } else {
+        net = 0
+      } 
+      document.getElementById("quesDisplay").innerHTML =`<h1>BIOCHEMISTRY MSQ (100 marks)</h1> <br> <h2> ${cbt[net].que} </h2> <br>
+       <p class = "p-3"><input type = "radio"> ${cbt[net].opt.join(' <br> <input type = "radio">')}</p>`
+    }
+    function Previous(){
+       if (net > 0){
+            net--;
+       } else {
+        net = cbt.length -1
+       }
+       document.getElementById("quesDisplay").innerHTML = `<h1>BIOCHEMISTRY MSQ (100 marks)</h1> <br> <h2> ${cbt[net].que} </h2> <br> 
+       <p class = "p-3"><input type = "radio"> ${cbt[net].opt.join(' <br> <input type = "radio">')}</p> `
+    }  
+</script>
+</html>
